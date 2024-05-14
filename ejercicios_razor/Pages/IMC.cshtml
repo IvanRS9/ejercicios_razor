@@ -1,0 +1,28 @@
+﻿@page
+@model ejercicios_razor.Pages.IMCModel
+@{
+    ViewData["Title"] = "Calculadora de IMC";
+}
+
+<h1>Calculadora de IMC</h1>
+
+<form method="post">
+    <div>
+        <label for="Peso">Peso (kg):</label>
+        <input asp-for="Peso" type="number" />
+    </div>
+    <div>
+        <label for="Altura">Altura (m):</label>
+        <input asp-for="Altura" type="number" />
+    </div>
+    <div>
+        <input type="submit" value="Calcular IMC" />
+    </div>
+</form>
+
+@if (Model.IMC > 0)
+{
+    <h2>Resultado:</h2>
+    <p>Tu IMC es: @Model.IMC</p>
+    <p>Clasificación de peso: @Model.Clasificacion</p>
+}

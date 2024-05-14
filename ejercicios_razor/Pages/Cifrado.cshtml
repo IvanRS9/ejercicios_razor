@@ -1,0 +1,112 @@
+﻿@page
+@model ejercicios_razor.Pages.CifradoModel
+@{
+	ViewBag.Title = "Cifrado César";
+}
+
+<style>
+	body {
+		font-family: Arial, sans-serif;
+		background-color: #f4f4f4;
+	}
+
+	h2 {
+		color: #333;
+	}
+
+	form {
+		background-color: #fff;
+		border-radius: 8px;
+		padding: 20px;
+		box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+		margin-bottom: 20px;
+	}
+
+	label {
+		font-weight: bold;
+		color: #555;
+	}
+
+	input[type="text"],
+	input[type="number"],
+	button {
+		padding: 8px;
+		border: 1px solid #ccc;
+		border-radius: 4px;
+		margin-bottom: 10px;
+		width: 100%;
+		box-sizing: border-box;
+	}
+
+		input[type="text"]::placeholder,
+		input[type="number"]::placeholder {
+			color: #aaa;
+		}
+
+	button {
+		background-color: #007bff;
+		color: #fff;
+		cursor: pointer;
+		transition: background-color 0.3s ease;
+	}
+
+		button:hover {
+			background-color: #0056b3;
+		}
+
+	p {
+		margin-bottom: 10px;
+	}
+</style>
+
+<h2>Cifrar Texto</h2>
+
+<form method="post">
+	<div>
+		<label for="Texto">Texto:</label>
+		<input asp-for="Texto" type="text" placeholder="Top Secret..." />
+	</div>
+	<div>
+		<label for="Desplazamiento">Desplazamiento:</label>
+		<input asp-for="Desplazamiento" type="number" value="" />
+	</div>
+	<div>
+		<button type="submit">Cifrar texto ultra secreto</button>
+	</div>
+</form>
+
+@if (Model.TextoCifrado != null)
+{
+	<h2>Texto cifrado:</h2>
+	<p>@Model.TextoCifrado</p>
+	<p>Cantidad de desplazamiento: @Model.Desplazamiento</p>
+}
+
+<br />
+
+<h2>
+	Descifrar Texto
+</h2>
+
+<form method="post" asp-page-handler="Descifrar">
+	<div>
+		<label for="TextoCifradoN">Texto:</label>
+		<input asp-for="TextoCifradoN" type="text" placeholder="Top Secret" />
+	</div>
+	<div>
+		<label for="DesplazamientoDescifradoN">Desplazamiento:</label>
+		<input asp-for="DesplazamientoDescifradoN" type="number" value="" />
+	</div>
+	<div>
+		<button type="submit">
+			Descifrar texto ultra secreto
+		</button>
+	</div>
+</form>
+
+@if (Model.TextoDescifradoN != null)
+{
+	<h2>Texto descifrado:</h2>
+	<p>@Model.TextoDescifradoN</p>
+	<p>Cantidad de desplazamiento: @Model.DesplazamientoDescifradoN</p>
+}
