@@ -13,7 +13,7 @@
     </div>
     <div>
         <label for="Altura">Altura (m):</label>
-        <input asp-for="Altura" type="number" />
+        <input asp-for="Altura" type="text" />
     </div>
     <div>
         <input type="submit" value="Calcular IMC" />
@@ -25,4 +25,31 @@
     <h2>Resultado:</h2>
     <p>Tu IMC es: @Model.IMC</p>
     <p>Clasificación de peso: @Model.Clasificacion</p>
+
+    @if (Model.Clasificacion == "Peso Bajo")
+	{
+		<p>Ligero como una pluma pai.</p>
+		<img src="~/img/pluma.jpg" style="max-width: 200px;" />
+	} else if (Model.Clasificacion == "Peso Normal")
+	{
+		<p>A ver, date vuelta.</p>
+		<img src="~/img/normal.jpg" style="max-width: 200px;" />
+	} else if (Model.Clasificacion == "Sobrepeso")
+	{
+		<p>Otro poquito y nos dejas sin comida pai.</p>
+		<img src="~/img/sobre_peso.jpg" style="max-width: 200px;" />
+    }
+    else if (Model.Clasificacion == "Obesidad grado 1")
+	{
+		<p>¿Sabes si hay ofertas en el GYM?</p>
+		<img src="~/img/obesidad_1.png" style="max-width: 200px;" />
+	} else if (Model.Clasificacion == "Obesidad grado 2")
+	{
+		<p>¿Hace cuantos kilos no te veo?</p>
+		<img src="~/img/obesidad_2.jpg" style="max-width: 200px;" />
+	} else if (Model.Clasificacion == "Obesidad grado 3")
+	{
+		<p>El guerrero dragon esta entre nosotros</p>
+		<img src="~/img/obesidad_3.jpg" style="max-width: 200px;" />
+	}
 }

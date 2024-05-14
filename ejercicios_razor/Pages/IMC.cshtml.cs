@@ -8,8 +8,9 @@ namespace ejercicios_razor.Pages
         [BindProperty]
         public double Peso { get; set; }
         [BindProperty]
-        public double Altura { get; set; }
+        public string Altura { get; set; }
         public double IMC { get; set; }
+        public double Op { get; set; }
         public string Clasificacion { get; set; }
 
         public void OnGet()
@@ -18,7 +19,8 @@ namespace ejercicios_razor.Pages
 
         public void OnPost()
         {
-            IMC = Math.Round(Peso / (Altura * Altura), 2);
+            Op = float.Parse(Altura) * float.Parse(Altura);
+            IMC = Math.Round(Peso / Op, 2);
 
             if (IMC < 18)
             {
@@ -30,7 +32,7 @@ namespace ejercicios_razor.Pages
             }
             else if (IMC < 27)
             {
-                Clasificacion = "Sobre Peso";
+                Clasificacion = "Sobrepeso";
             }
             else if (IMC < 30)
             {
