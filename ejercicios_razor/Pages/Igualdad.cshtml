@@ -1,0 +1,99 @@
+﻿@page
+@model ejercicios_razor.Pages.IgualdadModel
+@{
+    ViewData["Title"] = "Calculadora de Expresión";
+}
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f7f7f7;
+        margin: 0;
+        padding: 0;
+    }
+
+    h1 {
+        text-align: center;
+        margin-top: 20px;
+        color: #333;
+    }
+
+    form {
+        width: 300px;
+        margin: 0 auto;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    label {
+        display: block;
+        margin-bottom: 5px;
+        color: #666;
+    }
+
+    input[type="number"],
+    input[type="submit"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+        box-sizing: border-box;
+    }
+
+    input[type="submit"] {
+        background-color: #007bff;
+        color: #fff;
+        cursor: pointer;
+    }
+
+    h2 {
+        text-align: center;
+        margin-top: 20px;
+        color: #333;
+    }
+
+    p {
+        text-align: center;
+        margin-top: 10px;
+        color: #333;
+    }
+</style>
+
+<h1>Calculadora de Expresión</h1>
+
+<form method="post">
+    <div>
+        <label for="a">Valor de a:</label>
+        <input asp-for="a" type="number" value=""/>
+    </div>
+    <div>
+        <label for="x">Valor de x:</label>
+        <input asp-for="x" type="number" value=""/>
+    </div>
+    <div>
+        <label for="b">Valor de b:</label>
+        <input asp-for="b" type="number" value=""/>
+    </div>
+    <div>
+        <label for="y">Valor de y:</label>
+        <input asp-for="y" type="number" value=""/>
+    </div>
+    <div>
+        <label for="n">Valor de n:</label>
+        <input asp-for="n" type="number" value=""/>
+    </div>
+    <div>
+        <button type="submit">
+            Calcular
+        </button>
+    </div>
+</form>
+
+@if (Model.Resultado != null)
+{
+    <h2>Resultado:</h2>
+    <p>(@Model.a*@Model.x + @Model.b*@Model.y)^@Model.n = @Model.Resultado</p>
+}

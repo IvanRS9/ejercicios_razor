@@ -4,6 +4,73 @@
     ViewData["Title"] = "Calculadora de IMC";
 }
 
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
+        margin: 0;
+        padding: 0;
+    }
+
+    h1, h2 {
+        text-align: center;
+        margin-top: 20px;
+        color: #333;
+    }
+
+    form {
+        width: 300px;
+        margin: 0 auto;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    label {
+        display: block;
+        margin-bottom: 5px;
+        color: #666;
+    }
+
+    input[type="number"],
+    input[type="text"],
+    input[type="submit"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+        box-sizing: border-box;
+    }
+
+    input[type="submit"] {
+        background-color: #007bff;
+        color: #fff;
+        cursor: pointer;
+    }
+
+    p {
+        text-align: center;
+        margin-top: 20px;
+        color: #333;
+    }
+
+    img {
+        display: block;
+        margin: 0 auto;
+        margin-top: 20px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        max-width: 200px;
+        transition: transform 0.3s ease-in-out;
+    }
+
+        img:hover {
+            transform: scale(1.1);
+        }
+</style>
+
 <h1>Calculadora de IMC</h1>
 
 <form method="post">
@@ -27,29 +94,33 @@
     <p>Clasificación de peso: @Model.Clasificacion</p>
 
     @if (Model.Clasificacion == "Peso Bajo")
-	{
-		<p>Ligero como una pluma pai.</p>
-		<img src="~/img/pluma.jpg" style="max-width: 200px;" />
-	} else if (Model.Clasificacion == "Peso Normal")
-	{
-		<p>A ver, date vuelta.</p>
-		<img src="~/img/normal.jpg" style="max-width: 200px;" />
-	} else if (Model.Clasificacion == "Sobrepeso")
-	{
-		<p>Otro poquito y nos dejas sin comida pai.</p>
-		<img src="~/img/sobre_peso.jpg" style="max-width: 200px;" />
+    {
+        <p>Ligero como una pluma pai.</p>
+        <img src="~/img/pluma.jpg" />
+    }
+    else if (Model.Clasificacion == "Peso Normal")
+    {
+        <p>A ver, date vuelta.</p>
+        <img src="~/img/normal.jpg" />
+    }
+    else if (Model.Clasificacion == "Sobrepeso")
+    {
+        <p>Otro poquito y nos dejas sin comida pai.</p>
+        <img src="~/img/sobre_peso.jpg" />
     }
     else if (Model.Clasificacion == "Obesidad grado 1")
-	{
-		<p>¿Sabes si hay ofertas en el GYM?</p>
-		<img src="~/img/obesidad_1.png" style="max-width: 200px;" />
-	} else if (Model.Clasificacion == "Obesidad grado 2")
-	{
-		<p>¿Hace cuantos kilos no te veo?</p>
-		<img src="~/img/obesidad_2.jpg" style="max-width: 200px;" />
-	} else if (Model.Clasificacion == "Obesidad grado 3")
-	{
-		<p>El guerrero dragon esta entre nosotros</p>
-		<img src="~/img/obesidad_3.jpg" style="max-width: 200px;" />
-	}
+    {
+        <p>¿Sabes si hay ofertas en el GYM?</p>
+        <img src="~/img/obesidad_1.png" />
+    }
+    else if (Model.Clasificacion == "Obesidad grado 2")
+    {
+        <p>¿Hace cuantos kilos no te veo?</p>
+        <img src="~/img/obesidad_2.jpg" />
+    }
+    else if (Model.Clasificacion == "Obesidad grado 3")
+    {
+        <p>El guerrero dragon esta entre nosotros</p>
+        <img src="~/img/obesidad_3.jpg" />
+    }
 }
