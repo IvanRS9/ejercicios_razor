@@ -7,7 +7,6 @@
 <style>
     body {
         font-family: Arial, sans-serif;
-        background-color: #f0f0f0;
         margin: 0;
         padding: 0;
     }
@@ -15,13 +14,13 @@
     h1, h2 {
         text-align: center;
         margin-top: 20px;
-        color: #333;
+        color: #fff;
     }
 
     form {
         width: 300px;
         margin: 0 auto;
-        background-color: #fff;
+        background-color: #31363f;
         padding: 20px;
         border-radius: 5px;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -30,24 +29,17 @@
     label {
         display: block;
         margin-bottom: 5px;
-        color: #666;
+        color: #fff;
     }
 
     input[type="number"],
-    input[type="text"],
-    input[type="submit"] {
+    input[type="text"] {
         width: 100%;
         padding: 10px;
         margin-bottom: 10px;
         border: 1px solid #ccc;
         border-radius: 3px;
         box-sizing: border-box;
-    }
-
-    input[type="submit"] {
-        background-color: #007bff;
-        color: #fff;
-        cursor: pointer;
     }
 
     p {
@@ -69,21 +61,35 @@
         img:hover {
             transform: scale(1.1);
         }
+
+	button {
+		padding: 8px;
+		border: 1px solid #75abae;
+		border-radius: 4px;
+		margin-bottom: 10px;
+		width: 100%;
+		box-sizing: border-box;
+	}
 </style>
 
 <h1>Calculadora de IMC</h1>
+<br />
+<br />
 
 <form method="post">
     <div>
         <label for="Peso">Peso (kg):</label>
-        <input asp-for="Peso" type="number" />
+        <input asp-for="Peso" type="number" value="" placeholder="80..."/>
     </div>
     <div>
         <label for="Altura">Altura (m):</label>
-        <input asp-for="Altura" type="text" />
+        <input asp-for="Altura" type="text" placeholder="1.80"/>
     </div>
+    <br/>
     <div>
-        <input type="submit" value="Calcular IMC" />
+        <button type="submit" style="background: #75abae; color: #fff;font-size: 19px;">
+            Calcular IMC
+        </button>
     </div>
 </form>
 
